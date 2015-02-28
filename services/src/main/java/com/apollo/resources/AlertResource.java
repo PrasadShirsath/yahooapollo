@@ -1,21 +1,29 @@
 package com.apollo.resources;
 
+import com.apollo.services.AlertService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+import java.util.Map;
+
 /*klmklmmk*
- * Created by mrugen on 2/28/15.
+ * Cfmmfsmfskdleated by mrugen on 2/28/15.
  */
 @RestController
-@RequestMapping("/alerts")
+
 public class AlertResource {
+    private final AlertService alertService;
 
-    @RequestMapping("/classify")
-    public String fetchAlerts(){
+    @Autowired
+    public AlertResource(AlertService service) {
+        this.alertService = service;
+    }
 
-
-
-        return "alerts";
+    @RequestMapping("/alerts")
+    public Map<String, String> fetchAlerts() {
+        return alertService.fetchActionableAlerts();
     }
 
 
