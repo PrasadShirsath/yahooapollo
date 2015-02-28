@@ -1,17 +1,24 @@
+package com.apollo.util;
+
+import com.apollo.util.YahooEvent;
+import org.springframework.stereotype.Component;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
 
+@Component
 public class YahooEventReader {
 	
 	public List<YahooEvent> fetchScrubbedEvent() throws NumberFormatException, IOException{
-		
-		BufferedReader br = new BufferedReader(new FileReader("output.txt"));
+        URL resource = this.getClass().getClassLoader().getResource("output.txt");
+        BufferedReader br = new BufferedReader(new FileReader(resource.getFile()));
 
 		String line;
 
@@ -65,9 +72,6 @@ public class YahooEventReader {
 		
 	}
 
-	public static void main(String args[]) throws IOException{
 
-		
-	}
 
 }

@@ -1,3 +1,5 @@
+package com.apollo.util;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -6,10 +8,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 
-
 public class ScrubEvents {
 	
-	public static void main(String args[]) throws IOException {
+	public void main(String args[]) throws IOException {
 		
 		HashMap<String, YahooEvent> yahooEvents = new HashMap<String, YahooEvent>();
 		
@@ -134,17 +135,3 @@ public class ScrubEvents {
 
 }
 
-class YahooEvent{
-	
-	int severity;
-	int count;
-	
-	String node;
-	String property;
-	Calendar firstOccurence;
-	
-	String summary;
-	
-	Calendar latestTime;
-	
-}

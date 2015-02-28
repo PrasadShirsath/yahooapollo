@@ -1,10 +1,12 @@
 package com.apollo.resources;
 
 import com.apollo.services.AlertService;
+import com.apollo.util.YahooEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -22,7 +24,7 @@ public class AlertResource {
     }
 
     @RequestMapping("/alerts")
-    public Map<String, String> fetchAlerts() {
+    public Map<String, List<YahooEvent>> fetchAlerts() throws IOException {
         return alertService.fetchActionableAlerts();
     }
 
